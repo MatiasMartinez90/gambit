@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"strings"
+	"time"
 )
 
 type TokenJSON struct {
@@ -36,6 +37,9 @@ func ValidoToken(token string) (bool, error, string) {
 	if err != nil {
 		fmt.Println("No se puede decodificar la parte del token :", err.Error())
 		fmt.Println("Funca TURRITO")
+		fmt.Println("Imprimo parts1:")
+		fmt.Println(parts[1])
+		fmt.Println("Imprimo parts2:")
 		fmt.Println(parts[2])
 		fmt.Println("Imprimo parts:")
 		fmt.Println(parts)
@@ -49,14 +53,14 @@ func ValidoToken(token string) (bool, error, string) {
 		return false, err, err.Error()
 	}
 
-	//ahora := time.Now()
-	//tm := time.Unix(int64(tkj.Exp), 0)
+	ahora := time.Now()
+	tm := time.Unix(int64(tkj.Exp), 0)
 
-	//if tm.Before(ahora) {
-	//	fmt.Println("Fecha expiración token = " + tm.String())
-	//	fmt.Println("Token expirado !")
-	//	return false, err, "Token expirado !!"
-	//}
+	if tm.Before(ahora) {
+		fmt.Println("Fecha expiración token = " + tm.String())
+		fmt.Println("Token expirado !")
+		return false, err, "Token expirado !!"
+	}
 
 	return true, nil, string(tkj.Username)
 }
