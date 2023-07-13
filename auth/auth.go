@@ -33,6 +33,7 @@ func ValidoToken(token string) (bool, error, string) {
 	if err != nil {
 		fmt.Println("No se puede decodificar la parte del token :", err.Error())
 		fmt.Println("Funca TURRITO")
+		fmt.Println(parts)
 		return false, err, err.Error()
 	}
 
