@@ -23,8 +23,6 @@ type TokenJson struct {
 
 func ValidoToken(token string) (bool, error, string) {
 	parts := strings.Split(token, ".")
-	fmt.Println("Imprimo el token")
-	fmt.Println(parts)
 
 	if len(parts) != 3 {
 		fmt.Println("El token no es valido")
