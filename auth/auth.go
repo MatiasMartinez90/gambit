@@ -22,7 +22,7 @@ type TokenJSON struct {
 }
 
 func ValidoToken(token string) (bool, error, string) {
-	parts := strings.Split(token, "")
+	parts := strings.Split(token, ".")
 
 	if len(parts) != 3 {
 		fmt.Println("El token no es válido")
@@ -35,7 +35,7 @@ func ValidoToken(token string) (bool, error, string) {
 		fmt.Println("Funca TURRITO")
 		fmt.Println(parts)
 		fmt.Println("Imprimo parts 1:")
-		//fmt.Println(token[1])
+		fmt.Println(token)
 		return false, err, err.Error()
 	}
 
