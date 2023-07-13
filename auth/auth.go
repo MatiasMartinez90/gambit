@@ -29,7 +29,7 @@ func ValidoToken(token string) (bool, error, string) {
 		return false, nil, "El token no es válido"
 	}
 
-	userInfo, err := base64.StdEncoding.DecodeString(parts)
+	userInfo, err := base64.StdEncoding.DecodeString(parts[1])
 	if err != nil {
 		fmt.Println("No se puede decodificar la parte del token :", err.Error())
 		fmt.Println("Funca TURRITO")
