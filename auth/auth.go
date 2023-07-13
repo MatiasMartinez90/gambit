@@ -51,11 +51,11 @@ func ValidoToken(token string) (bool, error, string) {
 	ahora := time.Now()
 	tm := time.Unix(int64(tkj.Exp), 0)
 
-	if tm.Before(ahora) {
-		fmt.Println("Fecha expiración token = " + tm.String())
-		fmt.Println("Token expirado !")
-		return false, err, "Token expirado !!"
-	}
+	//if tm.Before(ahora) {
+	//	fmt.Println("Fecha expiración token = " + tm.String())
+	//	fmt.Println("Token expirado !")
+	//	return false, err, "Token expirado !!"
+	//}
 
 	return true, nil, string(tkj.Username)
 }
