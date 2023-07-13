@@ -24,7 +24,7 @@ func ValidoToken(token string) (bool, error, string) {
 	parts := strings.Split(token, ".")
 
 	// esta parts2 la agregue yo con la primer parte del token hardcodeado, por que el parts original falla. Tambien comente abajo la verificacion del a hora del token
-	parts2 := "eyJraWQiOiJEMHpcL3VVK0tOdUpCb1JtSlBLd3hCZVhBNThzeHBlVU9DanFGV1dDK0JpTT0iLCJhbGciOiJSUzI1NiJ9"
+	//parts2 := "eyJraWQiOiJEMHpcL3VVK0tOdUpCb1JtSlBLd3hCZVhBNThzeHBlVU9DanFGV1dDK0JpTT0iLCJhbGciOiJSUzI1NiJ9"
 
 	if len(parts) != 3 {
 		fmt.Println("El token no es válido")
@@ -32,7 +32,7 @@ func ValidoToken(token string) (bool, error, string) {
 	}
 
 	//userInfo, err := base64.StdEncoding.DecodeString(parts[1])
-	userInfo, err := base64.StdEncoding.DecodeString(parts2)
+	userInfo, err := base64.StdEncoding.DecodeString(parts)
 	if err != nil {
 		fmt.Println("No se puede decodificar la parte del token :", err.Error())
 		fmt.Println("Funca TURRITO")
