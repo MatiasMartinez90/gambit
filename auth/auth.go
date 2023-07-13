@@ -26,7 +26,7 @@ func ValidoToken(token string) (bool, error, string) {
 
 	if len(parts) != 3 {
 		fmt.Println("El token no es válido")
-		return false, nil, "El token no es válido", parts
+		return false, nil, "El token no es válido"
 	}
 
 	userInfo, err := base64.StdEncoding.DecodeString(parts[1])
