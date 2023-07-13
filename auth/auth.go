@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"strings"
-	"time"
 )
 
 type TokenJSON struct {
@@ -48,8 +47,8 @@ func ValidoToken(token string) (bool, error, string) {
 		return false, err, err.Error()
 	}
 
-	ahora := time.Now()
-	tm := time.Unix(int64(tkj.Exp), 0)
+	//ahora := time.Now()
+	//tm := time.Unix(int64(tkj.Exp), 0)
 
 	//if tm.Before(ahora) {
 	//	fmt.Println("Fecha expiración token = " + tm.String())
