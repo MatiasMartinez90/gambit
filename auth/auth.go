@@ -24,13 +24,15 @@ type TokenJSON struct {
 func ValidoToken(token string) (bool, error, string) {
 	parts := strings.Split(token, ".")
 
+	parts2 := "eyJraWQiOiJEMHpcL3VVK0tOdUpCb1JtSlBLd3hCZVhBNThzeHBlVU9DanFGV1dDK0JpTT0iLCJhbGciOiJSUzI1NiJ9"
+
 	if len(parts) != 3 {
 		fmt.Println("El token no es válido")
 		return false, nil, "El token no es válido"
 	}
 
 	//userInfo, err := base64.StdEncoding.DecodeString(parts[1])
-	userInfo, err := base64.StdEncoding.DecodeString("eyJraWQiOiJEMHpcL3VVK0tOdUpCb1JtSlBLd3hCZVhBNThzeHBlVU9DanFGV1dDK0JpTT0iLCJhbGciOiJSUzI1NiJ9")
+	userInfo, err := base64.StdEncoding.DecodeString(parts2)
 	if err != nil {
 		fmt.Println("No se puede decodificar la parte del token :", err.Error())
 		fmt.Println("Funca TURRITO")
