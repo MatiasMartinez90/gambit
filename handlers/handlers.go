@@ -10,8 +10,7 @@ import (
 )
 
 func Manejadores(path string, method string, body string, headers map[string]string, request events.APIGatewayV2HTTPRequest) (int, string) {
-
-	fmt.Println("Voy a procesar " + path + " > " + method)
+	fmt.Println("Voy a procesar"+path, " > "+method)
 
 	id := request.PathParameters["id"]
 	idn, _ := strconv.Atoi(id)
@@ -24,19 +23,25 @@ func Manejadores(path string, method string, body string, headers map[string]str
 	switch path[0:4] {
 	case "user":
 		return ProcesoUsers(body, path, method, user, id, request)
+
 	case "prod":
 		return ProcesoProducts(body, path, method, user, idn, request)
+
 	case "stoc":
-		return ProcesoStock(body, path, method, user, idn, request)
+		return ProcesoStocks(body, path, method, user, idn, request)
+
 	case "addr":
 		return ProcesoAddress(body, path, method, user, idn, request)
+
 	case "cate":
 		return ProcesoCategory(body, path, method, user, idn, request)
+
 	case "orde":
-		return ProcesoOrder(body, path, method, user, idn, request)
+		return ProcesoOrders(body, path, method, user, idn, request)
+
 	}
 
-	return 400, "Method Invalid GIL"
+	return 400, "Method Invalid SALAME"
 
 }
 
@@ -83,7 +88,7 @@ func ProcesoCategory(body string, path string, method string, user string, idn i
 	return 400, "Method Invalid ProcesoCategory"
 }
 
-func ProcesoStock(body string, path string, method string, user string, idn int, request events.APIGatewayV2HTTPRequest) (int, string) {
+func ProcesoStocks(body string, path string, method string, user string, idn int, request events.APIGatewayV2HTTPRequest) (int, string) {
 	return 400, "Method Invalid ProcesoStock"
 }
 
@@ -91,6 +96,6 @@ func ProcesoAddress(body string, path string, method string, user string, idn in
 	return 400, "Method Invalid ProcesoAddress"
 }
 
-func ProcesoOrder(body string, path string, method string, user string, idn int, request events.APIGatewayV2HTTPRequest) (int, string) {
+func ProcesoOrders(body string, path string, method string, user string, idn int, request events.APIGatewayV2HTTPRequest) (int, string) {
 	return 400, "Method Invalid ProcesoOrder"
 }
