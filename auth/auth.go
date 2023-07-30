@@ -41,6 +41,7 @@ func ValidoToken(token string) (bool, error, string) {
 		fmt.Println("Imprimo parts1:")
 		fmt.Println(parts[1])
 		fmt.Println("Imprimo parts2:")
+		fmt.Println("PERRRITO MALVADOOOO:")
 		fmt.Println(parts[2])
 		fmt.Println("Imprimo parts:")
 		fmt.Println(parts)
