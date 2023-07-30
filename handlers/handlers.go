@@ -11,6 +11,7 @@ import (
 
 func Manejadores(path string, method string, body string, headers map[string]string, request events.APIGatewayV2HTTPRequest) (int, string) {
 	fmt.Println("Voy a procesar"+path, " > "+method)
+	fmt.Println("Voy a procesar"+path[0:4], " > "+method)
 
 	id := request.PathParameters["id"]
 	idn, _ := strconv.Atoi(id)
