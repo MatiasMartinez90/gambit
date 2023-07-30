@@ -11,6 +11,7 @@ import (
 
 func Manejadores(path string, method string, body string, headers map[string]string, request events.APIGatewayV2HTTPRequest) (int, string) {
 	fmt.Println("Voy a procesar"+path, " > "+method)
+	fmt.Println("Voy a procesar"+path[1:5], " > "+method)
 
 	id := request.PathParameters["id"]
 	idn, _ := strconv.Atoi(id)
@@ -20,7 +21,7 @@ func Manejadores(path string, method string, body string, headers map[string]str
 		return statusCode, user
 	}
 
-	switch path[0:4] {
+	switch path[1:5] {
 	case "user":
 		return ProcesoUsers(body, path, method, user, id, request)
 
