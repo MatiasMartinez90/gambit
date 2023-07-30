@@ -36,7 +36,7 @@ func Manejadores(path string, method string, body string, headers map[string]str
 		return ProcesoOrder(body, path, method, user, idn, request)
 	}
 
-	return 400, "Method Invalid"
+	return 400, "Method Invalid GIL"
 
 }
 
