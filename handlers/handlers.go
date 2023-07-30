@@ -67,11 +67,11 @@ func validoAuthorization(path string, method string, headers map[string]string) 
 }
 
 func ProcesoUsers(body string, path string, method string, user string, id string, request events.APIGatewayV2HTTPRequest) (int, string) {
-	return 400, "Method Invalid"
+	return 400, "Method Invalid ProcesoUsers"
 }
 
 func ProcesoProducts(body string, path string, method string, user string, idn int, request events.APIGatewayV2HTTPRequest) (int, string) {
-	return 400, "Method Invalid"
+	return 400, "Method Invalid ProcesoProducts"
 }
 
 func ProcesoCategory(body string, path string, method string, user string, idn int, request events.APIGatewayV2HTTPRequest) (int, string) {
@@ -80,17 +80,17 @@ func ProcesoCategory(body string, path string, method string, user string, idn i
 	case "POST":
 		return routers.InsertCategory(body, user)
 	}
-	return 400, "Method Invalid"
+	return 400, "Method Invalid ProcesoCategory"
 }
 
 func ProcesoStock(body string, path string, method string, user string, idn int, request events.APIGatewayV2HTTPRequest) (int, string) {
-	return 400, "Method Invalid"
+	return 400, "Method Invalid ProcesoStock"
 }
 
 func ProcesoAddress(body string, path string, method string, user string, idn int, request events.APIGatewayV2HTTPRequest) (int, string) {
-	return 400, "Method Invalid"
+	return 400, "Method Invalid ProcesoAddress"
 }
 
 func ProcesoOrder(body string, path string, method string, user string, idn int, request events.APIGatewayV2HTTPRequest) (int, string) {
-	return 400, "Method Invalid"
+	return 400, "Method Invalid ProcesoOrder"
 }
