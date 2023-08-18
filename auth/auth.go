@@ -25,7 +25,7 @@ type TokenJSON struct {
 func ValidoToken(token string) (bool, error, string) {
 	fmt.Println("Ingresando a la funcion ValidoToken")
 	parts := strings.Split(token, ".")
-	parts2 := "eyJzdWIiOiI5NDM4MjRmOC02MGUxLTcwYTYtMzgxZS1hOGI4YTY1NDllZWQiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIG9wZW5pZCBlbWFpbCIsImF1dGhfdGltZSI6MTY5MjMxNTg0NSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tXC91cy1lYXN0LTFfRHZoSjYySWR6IiwiZXhwIjoxNjkyNDAyMjQ1LCJpYXQiOjE2OTIzMTU4NDUsInZlcnNpb24iOjIsImp0aSI6IjNlZmE5MzRkLTY5NjMtNDBmNy04NDM0LTQzZjZmM2FhOTU2MCIsImNsaWVudF9pZCI6IjUzZmM0NDk1b3VramowNHVkbXZqcnZmYjFkIiwidXNlcm5hbWUiOiI5NDM4MjRmOC02MGUxLTcwYTYtMzgxZS1hOGI4YTY1NDllZWQifQ"
+	parts2 := "cGVycml0bw=="
 
 	if len(parts) != 3 {
 		fmt.Println("El token no es valido")
