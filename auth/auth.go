@@ -34,7 +34,7 @@ func ValidoToken(token string) (bool, error, string) {
 	userInfo, err := base64.StdEncoding.DecodeString(parts[1])
 	if err != nil {
 		fmt.Println("No se puede decodificar la parte del token : ", err.Error())
-		fmt.Println(parts)
+		fmt.Println(parts[1])
 		return false, err, err.Error()
 	}
 
