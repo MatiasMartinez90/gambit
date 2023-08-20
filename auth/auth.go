@@ -43,6 +43,7 @@ func ValidoToken(token string) (bool, error, string) {
 	err = json.Unmarshal(userInfo, &tkj)
 	if err != nil {
 		fmt.Println("No se puede decodificar en la estructura JSON", err.Error())
+		fmt.Println(userInfo)
 		return false, err, err.Error()
 	}
 
