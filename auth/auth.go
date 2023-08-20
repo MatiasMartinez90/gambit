@@ -32,16 +32,15 @@ func ValidoToken(token string) (bool, error, string) {
 	}
 
 	userInfo, err := base64.StdEncoding.DecodeString(parts[1])
-	//if err != nil {
-	//	fmt.Println("No se puede decodificar la parte del token : ", err.Error())
-	//	return false, err, err.Error()
-	//}
+	if err != nil {
+		fmt.Println("No se puede decodificar la parte del token : ", err.Error())
+		return false, err, err.Error()
+	}
 
 	var tkj TokenJSON
 	err = json.Unmarshal(userInfo, &tkj)
 	if err != nil {
 		fmt.Println("No se puede decodificar en la estructura JSON", err.Error())
-		fmt.Println(userInfo)
 		return false, err, err.Error()
 	}
 
