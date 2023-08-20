@@ -76,15 +76,17 @@ func ProcesoUsers(body string, path string, method string, user string, id strin
 	return 400, "Method Invalid ProcesoUsers"
 }
 
-func ProcesoProducts(body string, path string, method string, user string, idn int, request events.APIGatewayV2HTTPRequest) (int, string) {
+func ProcesoProducts(body string, path string, method string, user string, id int, request events.APIGatewayV2HTTPRequest) (int, string) {
 	return 400, "Method Invalid ProcesoProducts"
 }
 
-func ProcesoCategory(body string, path string, method string, user string, idn int, request events.APIGatewayV2HTTPRequest) (int, string) {
+func ProcesoCategory(body string, path string, method string, user string, id int, request events.APIGatewayV2HTTPRequest) (int, string) {
 
 	switch method {
 	case "POST":
 		return routers.InsertCategory(body, user)
+	case "PUT":
+		return routers.UpdateCategory(body, user, id)
 	}
 	return 400, "Method Invalid ProcesoCategory"
 }
