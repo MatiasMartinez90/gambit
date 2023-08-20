@@ -32,8 +32,14 @@ func ValidoToken(token string) (bool, error, string) {
 	}
 	fmt.Println("Hello, Tute")
 	//userInfo, err := base64.StdEncoding.Strict().DecodeString("eyJhdF9oYXNoIjoicWtOdW50bUxYNncxaEhfOThFTmxKZyIsInN1YiI6Ijk0MzgyNGY4LTYwZTEtNzBhNi0zODFlLWE4YjhhNjU0OWVlZCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9EdmhKNjJJZHoiLCJjb2duaXRvOnVzZXJuYW1lIjoiOTQzODI0ZjgtNjBlMS03MGE2LTM4MWUtYThiOGE2NTQ5ZWVkIiwiYXVkIjoiNTNmYzQ0OTVvdWtqajA0dWRtdmpydmZiMWQiLCJldmVudF9pZCI6IjllMzVmNTM4LWQzNDMtNDI1YS1iOWRlLTJhMTI3MzFiMjZkZiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjkyNTQ0OTcwLCJleHAiOjE2OTI2MzEzNzAsImlhdCI6MTY5MjU0NDk3MCwianRpIjoiMzJlNDNkYTktNmY2Ni00MmZmLTk0YmMtNTdhNzFmYzMwMGUzIiwiZW1haWwiOiJtYXRpYXMubWFydGluZXo5MCs4N0BnbWFpbC5jb20ifQ")
-	userInfo, err := base64.StdEncoding.Strict().DecodeString(parts[1])
-	fmt.Println(string(userInfo) + "}")
+	userInfo3, err := base64.StdEncoding.Strict().DecodeString(parts[1])
+	userInfo2 := string(userInfo3) + "}"
+	userInfo := []byte(userInfo2)
+
+	fmt.Println("Imprimo userInfo2:")
+	fmt.Println(userInfo2)
+	fmt.Println("Imprimo userInfo:")
+	fmt.Println(userInfo)
 
 	//userInfo, err := base64.StdEncoding.DecodeString(parts[1])
 	fmt.Println(err)
