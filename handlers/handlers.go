@@ -11,6 +11,7 @@ import (
 
 func Manejadores(path string, method string, body string, headers map[string]string, request events.APIGatewayV2HTTPRequest) (int, string) {
 	fmt.Println("Voy a procesar"+path, " > "+method)
+	fmt.Println("Voy a procesar"+path[1:5], " > "+method)
 
 	id := request.PathParameters["id"]
 	idn, _ := strconv.Atoi(id)
@@ -20,7 +21,7 @@ func Manejadores(path string, method string, body string, headers map[string]str
 		return statusCode, user
 	}
 
-	switch path[0:4] {
+	switch path[1:5] {
 	case "user":
 		return ProcesoUsers(body, path, method, user, id, request)
 
@@ -41,13 +42,11 @@ func Manejadores(path string, method string, body string, headers map[string]str
 
 	}
 
-	return 400, "Method Invalid"
+	return 400, "Method Invalid SALAME"
 
 }
 
 func validoAuthorization(path string, method string, headers map[string]string) (bool, int, string) {
-	fmt.Println("Ingreando a metodo validoAuthorization")
-	//excluyo validacion de consultas libres
 	if (path == "product" && method == "GET") ||
 		(path == "category" && method == "GET") {
 		return true, 200, ""
@@ -55,23 +54,22 @@ func validoAuthorization(path string, method string, headers map[string]string) 
 
 	token := headers["authorization"]
 	if len(token) == 0 {
-		return false, 401, "Token Requerido"
+		return false, 401, "Token requerido"
 	}
 
 	todoOK, err, msg := auth.ValidoToken(token)
+
 	if !todoOK {
 		if err != nil {
-			fmt.Println("Error en el token" + err.Error())
+			fmt.Println("Error en el token " + err.Error())
 			return false, 401, err.Error()
 		} else {
-			fmt.Println("Error en el token" + msg)
+			fmt.Println("Error en el token " + msg)
 			return false, 401, msg
 		}
 	}
-
 	fmt.Println("Token OK")
 	return true, 200, msg
-
 }
 
 func ProcesoUsers(body string, path string, method string, user string, id string, request events.APIGatewayV2HTTPRequest) (int, string) {
