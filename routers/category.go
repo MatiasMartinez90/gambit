@@ -2,6 +2,7 @@ package routers
 
 import (
 	"encoding/json"
+	"fmt"
 	"strconv"
 
 	//"github.com/aws/aws-lambda-go/events"
@@ -52,6 +53,9 @@ func UpdateCategory(body string, User string, id int) (int, string) {
 	}
 
 	if len(t.CategPath) == 0 {
+		fmt.Println("Imprimo id")
+		fmt.Println(id)
+
 		return 400, "Debe especificar el Path (Ruta) de la categoria"
 	}
 
