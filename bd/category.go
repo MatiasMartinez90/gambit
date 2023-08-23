@@ -105,39 +105,36 @@ func DeleteCategory(id int) error {
 }
 
 func SelectCategories(CategId int, Slug string) ([]models.Category, error) {
-	fmt.Println("Comienza SelectCategories")
+	fmt.Println("Inicializando funcion  db.SelectCategories")
 
 	var Categ []models.Category
 
 	err := DbConnect()
+
 	if err != nil {
 		return Categ, err
 	}
 
 	defer Db.Close()
 
-	sentencia := "SELECT Categ_Id, Categ_Name, Categ_Path FROM Category"
+	sentencia := "Select Categ_Id, Categ_Name, Categ_Path  from category  "
 
 	if CategId > 0 {
-		sentencia += "WHERE Categ_Id = " + strconv.Itoa(CategId)
+		sentencia += " Where Categ_Id = " + strconv.Itoa(CategId)
 	} else {
 		if len(Slug) > 0 {
-			sentencia += "WHERE Categ_Path LIKE '%" + Slug + "%'"
+			sentencia += " Where Categ_Path like '%" + Slug + "%'"
 		}
 	}
 
 	fmt.Println(sentencia)
-
 	var rows *sql.Rows
 
 	rows, err = Db.Query(sentencia)
 
-	fmt.Println("HASTA ACA LLEGO BIEN")
-
 	//Nos movemos entre las filas para colocar los registros
 	for rows.Next() {
 		//Definimos variables, evitamos dejarlos en nulos
-		fmt.Println("ACA LA FLASHEO1")
 		var c models.Category
 		var categId sql.NullInt32
 		var categName sql.NullString
@@ -145,9 +142,7 @@ func SelectCategories(CategId int, Slug string) ([]models.Category, error) {
 
 		//Colocamos los varores  de los registros en las variebles
 		err := rows.Scan(&categId, &categName, &categPath)
-		fmt.Println("ACA LA FLASHEO2")
 		if err != nil {
-			fmt.Println("ACA LA FLASHEO3")
 			return Categ, err
 		}
 
@@ -164,4 +159,5 @@ func SelectCategories(CategId int, Slug string) ([]models.Category, error) {
 	fmt.Println("Select Category > Ejecucion exitosa")
 
 	return Categ, nil
+
 }
