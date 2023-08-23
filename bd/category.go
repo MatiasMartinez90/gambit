@@ -137,6 +137,7 @@ func SelectCategories(CategId int, Slug string) ([]models.Category, error) {
 	//Nos movemos entre las filas para colocar los registros
 	for rows.Next() {
 		//Definimos variables, evitamos dejarlos en nulos
+		fmt.Println("ACA LA FLASHEO1")
 		var c models.Category
 		var categId sql.NullInt32
 		var categName sql.NullString
@@ -144,7 +145,9 @@ func SelectCategories(CategId int, Slug string) ([]models.Category, error) {
 
 		//Colocamos los varores  de los registros en las variebles
 		err := rows.Scan(&categId, &categName, &categPath)
+		fmt.Println("ACA LA FLASHEO2")
 		if err != nil {
+			fmt.Println("ACA LA FLASHEO3")
 			return Categ, err
 		}
 
