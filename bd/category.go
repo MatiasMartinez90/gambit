@@ -130,11 +130,7 @@ func SelectCategories(CategId int, Slug string) ([]models.Category, error) {
 
 	var rows *sql.Rows
 
-	rows, _ = Db.Query(sentencia)
-
-	//if err != nil {
-	//	fmt.Println("FALLO CATEGORYDB ---> Db.Query(sentencia)")
-	//}
+	rows, err = Db.Query(sentencia)
 
 	fmt.Println("HASTA ACA LLEGO BIEN")
 
