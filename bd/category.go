@@ -136,6 +136,8 @@ func SelectCategories(CategId int, Slug string) ([]models.Category, error) {
 	//	fmt.Println("FALLO CATEGORYDB ---> Db.Query(sentencia)")
 	//}
 
+	fmt.Println("HASTA ACA LLEGO BIEN")
+
 	for rows.Next() {
 		var c models.Category
 		var categId sql.NullInt32
