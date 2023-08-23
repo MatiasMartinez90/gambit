@@ -134,25 +134,31 @@ func SelectCategories(CategId int, Slug string) ([]models.Category, error) {
 
 	fmt.Println("HASTA ACA LLEGO BIEN")
 
+	//Nos movemos entre las filas para colocar los registros
 	for rows.Next() {
+		//Definimos variables, evitamos dejarlos en nulos
 		var c models.Category
 		var categId sql.NullInt32
 		var categName sql.NullString
 		var categPath sql.NullString
 
+		//Colocamos los varores  de los registros en las variebles
 		err := rows.Scan(&categId, &categName, &categPath)
-
 		if err != nil {
 			return Categ, err
 		}
 
+		//Colocamos los registros en la variable de modelo.
 		c.CategID = int(categId.Int32)
 		c.CategName = categName.String
 		c.CategPath = categPath.String
 
+		//Sumamos los registros al slice
 		Categ = append(Categ, c)
 
 	}
-	fmt.Println("Select Category > Ejecucion Existosa")
+
+	fmt.Println("Select Category > Ejecucion exitosa")
+
 	return Categ, nil
 }
